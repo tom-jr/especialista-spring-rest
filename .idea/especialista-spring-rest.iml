@@ -7,14 +7,15 @@
           <map>
             <entry key="com.zeroturnaround.jrebel.FormatVersion" value="7.0.0" />
             <entry key="jrebelEnabled" value="true" />
+            <entry key="lastExternalPluginCheckTime" value="1686899622117" />
             <entry key="rebelXmlGenerationInvariantToken" value="PGFwcGxpY2F0aW9uIGdlbmVyYXRlZC1ieT0iaW50ZWxsaWoiPjxpZD5lc3BlY2lhbGlzdGEtc3ByaW5nLXJlc3Q8L2lkPjxjbGFzc3BhdGg+PGRpciBuYW1lPSIvaG9tZS90b20tanIvd29ya3NwYWNlLWVzdHVkby9qYXZhL2VzcGVjaWFsaXN0YS1zcHJpbmctcmVzdC9vdXQvcHJvZHVjdGlvbi9lc3BlY2lhbGlzdGEtc3ByaW5nLXJlc3QiPjwvZGlyPjwvY2xhc3NwYXRoPjwvYXBwbGljYXRpb24+" />
           </map>
         </option>
-        <option name="version" value="5" />
+        <option name="version" value="7" />
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_20" inherit-compiler-output="true">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17_PREVIEW" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
