@@ -11,7 +11,7 @@ public class GenericConfig {
     }
 
     @Bean
-    public Generic01 generic01(Printer printer) {
+    public Generic01 generic01(PrinterHP printer) {
         return new Generic01(printer);
     }
 }
