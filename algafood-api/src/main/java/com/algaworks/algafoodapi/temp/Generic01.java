@@ -7,4 +7,8 @@ public class Generic01 {
         System.out.println("START: " + this.getClass().getSimpleName());
         this.printer = printer;
     }
+
+    public String method() {
+       return this.printer.print("TESTE");
+    }
 }

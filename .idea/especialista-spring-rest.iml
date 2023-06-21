@@ -11,11 +11,11 @@
             <entry key="rebelXmlGenerationInvariantToken" value="PGFwcGxpY2F0aW9uIGdlbmVyYXRlZC1ieT0iaW50ZWxsaWoiPjxpZD5lc3BlY2lhbGlzdGEtc3ByaW5nLXJlc3Q8L2lkPjxjbGFzc3BhdGg+PGRpciBuYW1lPSIvaG9tZS90b20tanIvd29ya3NwYWNlLWVzdHVkby9qYXZhL2VzcGVjaWFsaXN0YS1zcHJpbmctcmVzdC9vdXQvcHJvZHVjdGlvbi9lc3BlY2lhbGlzdGEtc3ByaW5nLXJlc3QiPjwvZGlyPjwvY2xhc3NwYXRoPjwvYXBwbGljYXRpb24+" />
           </map>
         </option>
-        <option name="version" value="7" />
+        <option name="version" value="8" />
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17_PREVIEW" inherit-compiler-output="true">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />

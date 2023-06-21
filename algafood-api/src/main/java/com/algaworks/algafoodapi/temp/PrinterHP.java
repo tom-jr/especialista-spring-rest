@@ -1,10 +1,9 @@
 package com.algaworks.algafoodapi.temp;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("hp")
+@QualifierCustom(EnumQualifier.PRINTER_HP)
 public class PrinterHP implements Printer{
     public PrinterHP () {
         System.out.println("START: " + this.getClass().getSimpleName());

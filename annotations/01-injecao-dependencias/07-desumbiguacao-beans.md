@@ -42,9 +42,9 @@ public class InjectionImpl2 implements Injection {
 }
 ```
 
-- **@Qualify**
-Com o qualify podemos definir os components com seus qualifies respectivos assim podemos definir em cada injeção o 
-qualify referente a qual implementação desejamos injetar em cada caso.
+- **@Qualifier**
+Com o qualifier podemos definir os components com seus qualifies respectivos assim podemos definir em cada injeção o 
+qualifier referente a qual implementação desejamos injetar em cada caso.
 
 ```java
 @Component
@@ -53,7 +53,7 @@ public interface Injection {
 }
 
 @Component
-@Qualify("in01")
+@Qualifier("in01")
 public class InjectionImpl1 implements Injection {
     @Override
     void method() {
@@ -62,7 +62,7 @@ public class InjectionImpl1 implements Injection {
 }
 
 @Component
-@Qualify("in02")
+@Qualifier("in02")
 public class InjectionImpl2 implements Injection {
     @Override
     void method() {
@@ -74,12 +74,12 @@ public class InjectionImpl2 implements Injection {
 public class Generic {
     
     @Autowired
-    @Qualify("in01")
+    @Qualifier("in01")
     private Injection injection;
 }
 ```
 
-Os beans criados em alguma class de configuração também podem ser anotados com o @Qualify, assim podem ser selecionados
+Os beans criados em alguma class de configuração também podem ser anotados com o @Qualifier, assim podem ser selecionados
 em uma injeção para especificar que aquela instanciação do bean será a utilizada
 
 ```java
@@ -108,13 +108,13 @@ public class InjectionImpl2 implements Injection {
 public class InjectionConfiguration {
 
     @Bean
-    @Qualify("in01")
+    @Qualifier("in01")
     InjectionImpl1 impl1() {
         return new InjectionImpl1();
     }
 
     @Bean
-    @Qualify("in02")
+    @Qualifier("in02")
     InjectionImpl1 impl2() {
         return new InjectionImpl2();
     }
@@ -124,7 +124,62 @@ public class InjectionConfiguration {
 public class Generic {
 
     @Autowired
-    @Qualify("in02")
+    @Qualifier("in02")
     private Injection injection;
+}
+```
+
+
+- **Annotation customizada**
+Podemos customizar nossos qualifiers criando um enum que será o novo identificador. Então criamos uma annotation
+e definimos o enum como value. O exemplo se torna auto explicativo
+
+```java
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+public enum EnumQualifier {
+    INJECT_01, INJECT_02;
+}
+
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+public @interface QualifierCustom {
+    EnumQualifier value();
+}
+
+@Component
+public interface Inject {
+    void method();
+}
+
+@QualifierCustom(EnumQualifier.INJECT_01)
+@Component
+public class InjectImpl1 implements Inject {
+    @Override
+    void method() {
+//        codeBlock
+    }
+}
+
+@QualifierCustom(EnumQualifier.INJECT_02)
+@Component
+public class InjectImpl2 implements Inject {
+    @Override
+    void method() {
+//        codeBlock
+    }
+}
+
+@Component
+public class Main {
+    
+    @Autowired
+    @QualifierCustom(EnumQualifier.INJECT_01)
+    private Inject inject;
+    
+    public void  methodMain() {
+        this.inject.method();
+    }
 }
 ```
