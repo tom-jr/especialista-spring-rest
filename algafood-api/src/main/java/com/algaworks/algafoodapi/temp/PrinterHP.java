@@ -1,5 +1,7 @@
 package com.algaworks.algafoodapi.temp;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -7,6 +9,17 @@ import org.springframework.stereotype.Component;
 public class PrinterHP implements Printer{
     public PrinterHP () {
         System.out.println("START: " + this.getClass().getSimpleName());
+    }
+
+
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println(this.getClass().getSimpleName() + " pós-iniciado");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println(this.getClass().getSimpleName() + " pre-destruir");
     }
 
     @Override

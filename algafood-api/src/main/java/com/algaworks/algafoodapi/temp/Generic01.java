@@ -11,4 +11,12 @@ public class Generic01 {
     public String method() {
        return this.printer.print("TESTE");
     }
+
+    private void postConstruct() {
+        System.out.println(this.getClass().getSimpleName() + " pós-iniciado");
+    }
+
+    public void preDestroy() {
+        System.out.println(this.getClass().getSimpleName() + " pre-destruir");
+    }
 }

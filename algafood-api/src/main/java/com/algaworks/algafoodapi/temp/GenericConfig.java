@@ -17,7 +17,7 @@ public class GenericConfig {
     }
 
     @Profile("dev")
-    @Bean
+    @Bean(initMethod = "postConstruct", destroyMethod = "preDestroy")
     public Generic01 generic01() {
         return new Generic01(this.printer);
     }
