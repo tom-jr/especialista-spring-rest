@@ -1,5 +1,7 @@
 package com.algaworks.algafoodapi.temp;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class Generic01 {
     private final Printer printer;
 
