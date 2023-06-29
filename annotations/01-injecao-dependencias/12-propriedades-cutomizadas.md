@@ -16,3 +16,15 @@ public class Component01 {
     }
 }
 ```
+
+
+## definindo vários arquivos properties
+Podemos definir vários properties e definir o active no application.properties principal.
+
+application.properties
+application-dev.properties
+application-prod.properties
+
+```properties
+aplication
+```

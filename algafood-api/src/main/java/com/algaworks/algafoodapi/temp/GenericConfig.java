@@ -16,7 +16,6 @@ public class GenericConfig {
         System.out.println("START: " + this.getClass().getSimpleName());
     }
 
-//    @Profile("dev")
     @Bean(initMethod = "postConstruct", destroyMethod = "preDestroy")
     public Generic01 generic01() {
         return new Generic01(this.printer);
