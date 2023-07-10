@@ -1,12 +1,18 @@
 package com.algaworks.algafoodapi;
 
+import com.algaworks.algafoodapi.domain.models.Cozinha;
+import com.algaworks.algafoodapi.jpa.CadastroCozinha;
 import com.algaworks.algafoodapi.temp.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class MeuPrimeiroController {
@@ -14,6 +20,9 @@ public class MeuPrimeiroController {
     @Autowired
     @QualifierCustom(EnumQualifier.PRINTER_EPSON)
     private Printer printer;
+
+    @Autowired
+    private CadastroCozinha cadastroCozinha;
 
     @Autowired
     private Generic01 generic01;
@@ -39,4 +48,11 @@ public class MeuPrimeiroController {
                 this.getClass().getSimpleName()));
         return printer.print("Hello World!!!!");
     }
+
+    @GetMapping("/cozinhas")
+    @ResponseBody
+    List<Cozinha> buscarCozinha() {
+        return cadastroCozinha.consultarCozinha();
+    }
+
 }
